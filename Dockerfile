@@ -1,8 +1,13 @@
-FROM ubuntu:xenial
+FROM golang:alpine as build
+ENV RELEASE_TAG 2.0.8
+RUN apk --update --no-cache add git && \
+    git clone https://github.com/jedisct1/dnscrypt-proxy /go/src/github.com/jedisct1/ && \
+    cd /go/src/github.com/jedisct1/dnscrypt-proxy && \
+    git checkout tags/${RELEASE_TAG} && \
+    go install -v ./...
 
-RUN apt-get update && apt-get install -y wget
-RUN wget https://github.com/jedisct1/dnscrypt-proxy/releases/download/2.0.8/dnscrypt-proxy-linux_x86_64-2.0.8.tar.gz
-RUN tar -xvzf dnscrypt-proxy-linux_x86_64-2.0.8.tar.gz
-RUN rm dnscrypt-proxy-linux_x86_64-2.0.8.tar.gz
+FROM alpine:latest
+RUN apk --update --no-cache add ca-certificates
+COPY --from=build /go/bin/dnscrypt-proxy /usr/local/bin/dnscrypt-proxy
 
-CMD ["linux-x86_64/dnscrypt-proxy", "-config", "/config/dnscrypt-proxy.toml"]
+CMD ["dnscrypt-proxy", "-config", "/config/dnscrypt-proxy.toml"]
