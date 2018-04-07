@@ -11,6 +11,6 @@ build-tag:
   script:
     - echo "Building v$CI_COMMIT_TAG"
     - docker build --pull --build-arg RELEASE_TAG=$CI_COMMIT_TAG -t "$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG" .
-    - doocker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG"
+    - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG"
   only:
     - tags
