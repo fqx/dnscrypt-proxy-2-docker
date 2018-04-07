@@ -1,6 +1,14 @@
-To use: docker-compose up
+This image comes with a configuration which:
 
-There's a config file already in the image; to replace it, mount a new file at /config/dnscrypt-proxy.toml.
+* Enables IPv6
+* Looks up queries via DNS-over-HTTP to Google Public DNS (8.8.8.8) and Cloudflare DNS (1.1.1.1)
+* Listens on all interfaces
 
-Edit the config file to specify other resolvers, or disable IPv6 if needed.
+You can run with this configuration:
+
+`docker run 654c9711/dnscrypt-proxy-2`
+
+If you wish to override the configuration:
+
+`docker run -v /path/to/dnscrypt-proxy.toml:/config/dnscrypt-proxy.toml 654c9711/dnscrypt-proxy-2`
 
