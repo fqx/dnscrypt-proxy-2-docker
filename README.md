@@ -1,3 +1,5 @@
+This is a Docker image containing [DNSCrypt Proxy 2.x](https://github.com/jedisct1/dnscrypt-proxy).
+
 This image comes with a configuration which:
 
 * Enables IPv6
