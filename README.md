@@ -6,9 +6,9 @@ This image comes with a configuration which:
 
 You can run with this configuration:
 
-`docker run 654c9711/dnscrypt-proxy-2`
+`docker run -p 53:53/udp 654c9711/dnscrypt-proxy-2`
 
 If you wish to override the configuration:
 
-`docker run -v /path/to/dnscrypt-proxy.toml:/config/dnscrypt-proxy.toml 654c9711/dnscrypt-proxy-2`
+`docker run -p 53:53/udp  -v /path/to/dnscrypt-proxy.toml:/config/dnscrypt-proxy.toml 654c9711/dnscrypt-proxy-2`
 
