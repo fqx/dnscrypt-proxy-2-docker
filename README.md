@@ -3,7 +3,7 @@ This is a Docker image containing [DNSCrypt Proxy 2.x](https://github.com/jedisc
 This image comes with a configuration which:
 
 * Enables IPv6
-* Looks up queries via DNS-over-HTTP to Google Public DNS (8.8.8.8) and Cloudflare DNS (1.1.1.1)
+* Looks up queries via DNS-over-HTTPS (DoH) to Google Public DNS (8.8.8.8) and Cloudflare DNS (1.1.1.1)
 * Listens on all interfaces
 
 You can run with this configuration:
