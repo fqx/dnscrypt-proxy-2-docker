@@ -5,7 +5,7 @@ RUN apk --no-cache add git upx && \
     cd /go/src/github.com/jedisct1/dnscrypt-proxy && \
     git checkout tags/${RELEASE_TAG} && \
     CGO_ENABLED=0 GOOS=linux go install -a -ldflags '-s -w -extldflags "-static"' -v ./... && \
-    apk -9 /go/bin/dnscrypt-proxy
+    upx -9 /go/bin/dnscrypt-proxy
 
 FROM alpine:3.7
 RUN apk --no-cache add ca-certificates
