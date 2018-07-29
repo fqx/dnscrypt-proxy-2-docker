@@ -2,5 +2,5 @@ This is a Docker image containing [DNSCrypt Proxy 2.x](https://github.com/jedisc
 
 You can run with this configuration:
 
-`docker run -p 53:53/udp  -v /path/to/dnscrypt-proxy.toml:/config/dnscrypt-proxy.toml bltfqx/dnscrypt-proxy-2`
+`docker run -p 53:53/udp  -v /path/to/dnscrypt-proxy.toml:/config bltfqx/dnscrypt-proxy-2`
 
